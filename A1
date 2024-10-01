@@ -1,0 +1,414 @@
+from enum import Enum
+
+# ENUM for Gender
+class Gender(Enum):
+    MALE = "Male"
+    FEMALE = "Female"
+    OTHER = "Other"
+
+# User Class
+class User:
+    def __init__(self, user_id: str, first_name: str, last_name: str, birth_date: str, gender: Gender, location: str, ethnicity: str, origin_country: str, email_address: str, contact_number: str):
+        self.__user_id = user_id
+        self.__first_name = first_name
+        self.__last_name = last_name
+        self.__birth_date = birth_date
+        self.__gender = gender
+        self.__location = location
+        self.__ethnicity = ethnicity
+        self.__origin_country = origin_country
+        self.__email_address = email_address
+        self.__contact_number = contact_number
+
+    # Methods
+    def logIn(self):
+        pass
+
+    def registerAccount(self):
+        pass
+
+    def chooseLocation(self):
+        pass
+
+    # Getters and Setters
+    def getUserId(self) -> str:
+        return self.__user_id
+
+    def setUserId(self, user_id: str):
+        self.__user_id = user_id
+
+    def getFirstName(self) -> str:
+        return self.__first_name
+
+    def setFirstName(self, first_name: str):
+        self.__first_name = first_name
+
+    def getLastName(self) -> str:
+        return self.__last_name
+
+    def setLastName(self, last_name: str):
+        self.__last_name = last_name
+
+    def getBirthDate(self) -> str:
+        return self.__birth_date
+
+    def setBirthDate(self, birth_date: str):
+        self.__birth_date = birth_date
+
+    def getGender(self) -> Gender:
+        return self.__gender
+
+    def setGender(self, gender: Gender):
+        self.__gender = gender
+
+    def getLocation(self) -> str:
+        return self.__location
+
+    def setLocation(self, location: str):
+        self.__location = location
+
+    def getEthnicity(self) -> str:
+        return self.__ethnicity
+
+    def setEthnicity(self, ethnicity: str):
+        self.__ethnicity = ethnicity
+
+    def getOriginCountry(self) -> str:
+        return self.__origin_country
+
+    def setOriginCountry(self, origin_country: str):
+        self.__origin_country = origin_country
+
+    def getEmailAddress(self) -> str:
+        return self.__email_address
+
+    def setEmailAddress(self, email_address: str):
+        self.__email_address = email_address
+
+    def getContactNumber(self) -> str:
+        return self.__contact_number
+
+    def setContactNumber(self, contact_number: str):
+        self.__contact_number = contact_number
+
+    # Display function
+    def display(self):
+        print(f"User ID: {self.__user_id}, Name: {self.__first_name} {self.__last_name}, DOB: {self.__birth_date}, Email: {self.__email_address}, Phone: {self.__contact_number}, Place of Origin: {self.__origin_country}, Gender: {self.__gender.value}, Ethnicity: {self.__ethnicity}, Address: {self.__location}")
+
+# Creating multiple objects and displaying their data
+user1 = User("11111", "Ahmed", "Al Jaber", "10-10-1995", Gender.MALE, "Dubai, UAE", "Arab", "UAE", "ahmed.jaber@example.com", "1234567891")
+user2 = User("22222", "Sophia", "Lee", "05-15-1998", Gender.FEMALE, "Seoul, South Korea", "Asian", "South Korea", "sophia.lee@example.com", "9876543210")
+user3 = User("33333", "Lucas", "Garcia", "08-08-1980", Gender.MALE, "Madrid, Spain", "Hispanic", "Spain", "lucas.garcia@example.com", "2233445567")
+user4 = User("44444", "Sara", "Smith", "12-12-1993", Gender.FEMALE, "London, UK", "Caucasian", "UK", "sara.smith@example.com", "6655443322")
+user5 = User("55555", "Michael", "Wong", "03-25-1990", Gender.MALE, "Hong Kong", "Asian", "Hong Kong", "michael.wong@example.com", "7788991122")
+
+# Display User details
+user1.display()
+print("\n")  # Adding a newline for clarity between users
+user2.display()
+print("\n")
+user3.display()
+print("\n")
+user4.display()
+print("\n")
+user5.display()
+
+
+
+
+# Reservation Class
+class Reservation:
+    def __init__(self, roomNumber: int, roomSize: str, roomPrice: float, numberOfBeds: int, isAvailable: str):
+        self.__roomNumber = roomNumber
+        self.__roomSize = roomSize
+        self.__roomPrice = roomPrice
+        self.__numberOfBeds = numberOfBeds
+        self.__isAvailable = isAvailable
+
+    # Methods
+    def checkAvailability(self) -> bool:
+        return self.__isAvailable == "Yes"  # Returns True if room is available
+
+    def bookRoom(self):
+        pass
+
+    # Getters and Setters
+    def getRoomNumber(self) -> int:
+        return self.__roomNumber
+
+    def setRoomNumber(self, roomNumber: int):
+        self.__roomNumber = roomNumber
+
+    def getRoomSize(self) -> str:
+        return self.__roomSize
+
+    def setRoomSize(self, roomSize: str):
+        self.__roomSize = roomSize
+
+    def getRoomPrice(self) -> float:
+        return self.__roomPrice
+
+    def setRoomPrice(self, roomPrice: float):
+        self.__roomPrice = roomPrice
+
+    def getNumberOfBeds(self) -> int:
+        return self.__numberOfBeds
+
+    def setNumberOfBeds(self, numberOfBeds: int):
+        self.__numberOfBeds = numberOfBeds
+
+    def getIsAvailable(self) -> str:
+        return self.__isAvailable
+
+    def setIsAvailable(self, isAvailable: str):
+        self.__isAvailable = isAvailable
+
+    # Display function
+    def display(self):
+        print(f"Room Number: {self.__roomNumber}")
+        print(f"Room Size: {self.__roomSize}")
+        print(f"Room Price: {self.__roomPrice}")
+        print(f"Number of Beds: {self.__numberOfBeds}")
+        print(f"Availability: {self.__isAvailable}")
+
+# Creating multiple Reservation objects and displaying their data
+reservation1 = Reservation(101, "Suite", 300.50, 2, "Yes")
+reservation2 = Reservation(102, "Double", 150.00, 2, "No")
+reservation3 = Reservation(103, "Single", 100.00, 1, "Yes")
+reservation4 = Reservation(104, "Deluxe", 250.75, 3, "Yes")
+reservation5 = Reservation(105, "Deluxe", 250.75, 3, "Yes")
+
+
+print("\n\n")  # Adding two blank lines to separate User class and Reservation class output
+
+# Display Reservation details
+reservation1.display()
+print("\n")
+reservation2.display()
+print("\n")
+reservation3.display()
+print("\n")
+reservation4.display()
+print("\n")
+reservation5.display()
+
+
+# Room Class
+class Room:
+    def __init__(self, roomNumber: int, roomSize: str, roomPrice: float, isAvailable: bool, view: str):
+        self.__roomNumber = roomNumber
+        self.__roomSize = roomSize
+        self.__roomPrice = roomPrice
+        self.__isAvailable = isAvailable
+        self.__view = view
+
+    # Methods
+    def checkAvailability(self) -> bool:
+        return self.__isAvailable  # Returns the availability status as a boolean
+
+    def bookRoom(self):
+        pass
+
+    # Getters and Setters
+    def getRoomNumber(self) -> int:
+        return self.__roomNumber
+
+    def setRoomNumber(self, roomNumber: int):
+        self.__roomNumber = roomNumber
+
+    def getRoomSize(self) -> str:
+        return self.__roomSize
+
+    def setRoomSize(self, roomSize: str):
+        self.__roomSize = roomSize
+
+    def getRoomPrice(self) -> float:
+        return self.__roomPrice
+
+    def setRoomPrice(self, roomPrice: float):
+        self.__roomPrice = roomPrice
+
+    def getIsAvailable(self) -> bool:
+        return self.__isAvailable
+
+    def setIsAvailable(self, isAvailable: bool):
+        self.__isAvailable = isAvailable
+
+    def getView(self) -> str:
+        return self.__view
+
+    def setView(self, view: str):
+        self.__view = view
+
+    # Display function
+    def display(self):
+        print("\n")  # Adding space before displaying room details
+        print(f"Room Number: {self.__roomNumber}")
+        print(f"Room Size: {self.__roomSize}")
+        print(f"Room Price: {self.__roomPrice}")
+        print(f"Availability: {'Yes' if self.__isAvailable else 'No'}")
+        print(f"View: {self.__view}\n")
+
+# Creating 5 Room instances
+room1 = Room(201, "Suite", 350.00, True, "Ocean View")
+room2 = Room(202, "Double", 200.00, False, "Garden View")
+room3 = Room(203, "Single", 120.00, True, "City View")
+room4 = Room(204, "Deluxe", 400.00, True, "Mountain View")
+room5 = Room(205, "Penthouse", 500.00, True, "Panoramic View")
+
+# Display Room details
+print("\n")  # Adding space to separate from the previous class outputs
+room1.display()
+room2.display()
+room3.display()
+room4.display()
+room5.display()
+
+
+# Hotel Class
+class Hotel:
+    def __init__(self, hotel_id: str, hotel_name: str, star_rating: int, location: str, room_capacity: int):
+        self.__hotel_id = hotel_id
+        self.__hotel_name = hotel_name
+        self.__star_rating = star_rating
+        self.__location = location
+        self.__room_capacity = room_capacity
+
+    # Methods with 'pass' except for Getters and Setters
+    def getAvailableRooms(self) -> list:
+        pass
+
+    # Getters and Setters
+    def getHotelId(self) -> str:
+        return self.__hotel_id
+
+    def setHotelId(self, hotel_id: str):
+        self.__hotel_id = hotel_id
+
+    def getStarRating(self) -> int:
+        return self.__star_rating
+
+    def setStarRating(self, star_rating: int):
+        self.__star_rating = star_rating
+
+    def getLocation(self) -> str:
+        return self.__location
+
+    def setLocation(self, location: str):
+        self.__location = location
+
+    def getRoomCapacity(self) -> int:
+        return self.__room_capacity
+
+    def setRoomCapacity(self, room_capacity: int):
+        self.__room_capacity = room_capacity
+
+    # Display hotel details
+    def display(self):
+        print(f"Hotel ID: {self.__hotel_id}")
+        print(f"Hotel Name: {self.__hotel_name}")
+        print(f"Star Rating: {self.__star_rating}")
+        print(f"Location: {self.__location}")
+        print(f"Room Capacity: {self.__room_capacity}")
+
+# Creating 5 Hotel objects
+hotel1 = Hotel("H001", "Luxury Stay", 5, "Dubai, UAE", 200)
+hotel2 = Hotel("H002", "Beachside Resort", 4, "Abu Dhabi, UAE", 150)
+hotel3 = Hotel("H003", "Mountain Escape", 3, "Fujairah, UAE", 50)
+hotel4 = Hotel("H004", "City Central", 4, "Sharjah, UAE", 100)
+hotel5 = Hotel("H005", "Desert Oasis", 5, "Al Ain, UAE", 80)
+
+# Display Hotel details
+print("\nHotel 1 :")
+hotel1.display()
+
+print("\nHotel 2 :")
+hotel2.display()
+
+print("\nHotel 3 :")
+hotel3.display()
+
+print("\nHotel 4 :")
+hotel4.display()
+
+print("\nHotel 5 :")
+hotel5.display()
+
+# Price Class
+class Price:
+    def __init__(self, paymentID: str, amount: float, paymentMethod: str, promoApplied: bool, currency: str):
+        self.__paymentID = paymentID
+        self.__amount = amount
+        self.__paymentMethod = paymentMethod
+        self.__promoApplied = promoApplied
+        self.__currency = currency
+
+    # Methods with 'pass' except for Getters and Setters
+    def processPayment(self):
+        pass
+
+    def applyDiscount(self, discount_code: str):
+        pass
+
+    # Getters and Setters
+    def getPaymentID(self) -> str:
+        return self.__paymentID
+
+    def setPaymentID(self, paymentID: str):
+        self.__paymentID = paymentID
+
+    def getAmount(self) -> float:
+        return self.__amount
+
+    def setAmount(self, amount: float):
+        self.__amount = amount
+
+    def getPaymentMethod(self) -> str:
+        return self.__paymentMethod
+
+    def setPaymentMethod(self, paymentMethod: str):
+        self.__paymentMethod = paymentMethod
+
+    def getPromoApplied(self) -> bool:
+        return self.__promoApplied
+
+    def setPromoApplied(self, promoApplied: bool):
+        self.__promoApplied = promoApplied
+
+    def getCurrency(self) -> str:
+        return self.__currency
+
+    def setCurrency(self, currency: str):
+        self.__currency = currency
+
+    # Display method to print the details
+    def display(self):
+        print(f"Payment ID: {self.__paymentID}")
+        print(f"Amount: {self.__amount}")
+        print(f"Payment Method: {self.__paymentMethod}")
+        print(f"Promo Applied: {'Yes' if self.__promoApplied else 'No'}")
+        print(f"Currency: {self.__currency}")
+
+# Creating 5 instances
+payment1 = Price("P001", 250.00, "Credit Card", True, "USD")
+payment2 = Price("P002", 500.00, "Debit Card", False, "AED")
+payment3 = Price("P003", 320.75, "PayPal", True, "EUR")
+payment4 = Price("P004", 150.00, "Cash", False, "USD")
+payment5 = Price("P005", 600.50, "Credit Card", True, "AED")
+
+# Displaying the details for each payment
+print("\nPayment 1:")
+payment1.display()
+
+print("\nPayment 2:")
+payment2.display()
+
+print("\nPayment 3:")
+payment3.display()
+
+print("\nPayment 4:")
+payment4.display()
+
+print("\nPayment 5:")
+payment5.display()
+
