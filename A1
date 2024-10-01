@@ -116,6 +116,8 @@ user5.display()
 
 
 
+from datetime import date
+
 # Reservation Class
 class Reservation:
     def __init__(self, roomNumber: int, roomSize: str, roomPrice: float, numberOfBeds: int, isAvailable: str):
@@ -124,13 +126,23 @@ class Reservation:
         self.__roomPrice = roomPrice
         self.__numberOfBeds = numberOfBeds
         self.__isAvailable = isAvailable
+        self.__checkInDate = None  # Initialize check-in date as None
+        self.__checkOutDate = None  # Initialize check-out date as None
 
     # Methods
     def checkAvailability(self) -> bool:
-        return self.__isAvailable == "Yes"  # Returns True if room is available
+        return self.__isAvailable == "Yes"  # Returns True if the room is available
 
     def bookRoom(self):
         pass
+
+    def checkIn(self, checkInDate: date):
+        self.__checkInDate = checkInDate
+        print(f"Room {self.__roomNumber} checked in on {self.__checkInDate}.")
+
+    def checkOut(self, checkOutDate: date):
+        self.__checkOutDate = checkOutDate
+        print(f"Room {self.__roomNumber} checked out on {self.__checkOutDate}.")
 
     # Getters and Setters
     def getRoomNumber(self) -> int:
@@ -163,34 +175,60 @@ class Reservation:
     def setIsAvailable(self, isAvailable: str):
         self.__isAvailable = isAvailable
 
+    def getCheckInDate(self) -> date:
+        return self.__checkInDate
+
+    def setCheckInDate(self, checkInDate: date):
+        self.__checkInDate = checkInDate
+
+    def getCheckOutDate(self) -> date:
+        return self.__checkOutDate
+
+    def setCheckOutDate(self, checkOutDate: date):
+        self.__checkOutDate = checkOutDate
+
     # Display function
     def display(self):
-        print(f"Room Number: {self.__roomNumber}")
+        print(f"\nRoom Number: {self.__roomNumber}")
         print(f"Room Size: {self.__roomSize}")
         print(f"Room Price: {self.__roomPrice}")
         print(f"Number of Beds: {self.__numberOfBeds}")
         print(f"Availability: {self.__isAvailable}")
+        if self.__checkInDate:
+            print(f"Check-In Date: {self.__checkInDate}")
+        if self.__checkOutDate:
+            print(f"Check-Out Date: {self.__checkOutDate}")
 
-# Creating multiple Reservation objects and displaying their data
+# Creating Reservation objects and displaying their data
 reservation1 = Reservation(101, "Suite", 300.50, 2, "Yes")
 reservation2 = Reservation(102, "Double", 150.00, 2, "No")
 reservation3 = Reservation(103, "Single", 100.00, 1, "Yes")
 reservation4 = Reservation(104, "Deluxe", 250.75, 3, "Yes")
-reservation5 = Reservation(105, "Deluxe", 250.75, 3, "Yes")
-
-
-print("\n\n")  # Adding two blank lines to separate User class and Reservation class output
+reservation5 = Reservation(105, "Suite", 350.00, 2, "Yes")
 
 # Display Reservation details
 reservation1.display()
-print("\n")
 reservation2.display()
-print("\n")
 reservation3.display()
-print("\n")
 reservation4.display()
-print("\n")
 reservation5.display()
+
+# Demonstrate check-in and check-out with dates
+reservation1.checkIn(date(2024, 10, 1))
+reservation1.checkOut(date(2024, 10, 5))
+
+reservation2.checkIn(date(2024, 10, 2))
+reservation2.checkOut(date(2024, 10, 6))
+
+reservation3.checkIn(date(2024, 10, 3))
+reservation3.checkOut(date(2024, 10, 7))
+
+reservation4.checkIn(date(2024, 10, 4))
+reservation4.checkOut(date(2024, 10, 8))
+
+reservation5.checkIn(date(2024, 10, 5))
+reservation5.checkOut(date(2024, 10, 9))
+
 
 
 # Room Class
